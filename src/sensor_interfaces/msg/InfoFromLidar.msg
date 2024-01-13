@@ -1,0 +1,4 @@
+bool car_infront_detected
+
+float32 speed_deviation_car_infront
+float32 distance_car_infront
