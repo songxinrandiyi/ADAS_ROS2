@@ -4,7 +4,7 @@
 LidarSensorHandler::LidarSensorHandler() : Node("lidar_sensor_handler")
 {
   subscription_ = this->create_subscription<sensor_msgs::msg::LaserScan>(
-      "/lidar/scan", 10, std::bind(&LidarSensorHandler::lidarCallback, this, std::placeholders::_1));
+      "/lidar/scan", 100, std::bind(&LidarSensorHandler::lidarCallback, this, std::placeholders::_1));
 
   lidar_info_publisher_ = this->create_publisher<sensor_interfaces::msg::InfoFromLidar>("/lidar/info", 100);
 }

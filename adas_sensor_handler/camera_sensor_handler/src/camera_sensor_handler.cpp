@@ -4,7 +4,7 @@ CameraSensorHandler::CameraSensorHandler()
   : Node("camera_handler_node")
 {
   subscription_ = create_subscription<sensor_msgs::msg::Image>(
-    "/camera/image_raw", 10, std::bind(&CameraSensorHandler::imageCallback, this, std::placeholders::_1));
+    "/camera/image_raw", 100, std::bind(&CameraSensorHandler::imageCallback, this, std::placeholders::_1));
   publisher_ = this->create_publisher<sensor_interfaces::msg::InfoFromCamera>("/info_from_image", 100);
 }
 
