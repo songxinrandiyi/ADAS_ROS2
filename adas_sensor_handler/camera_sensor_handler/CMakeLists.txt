@@ -11,14 +11,15 @@ find_package(rclcpp REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(OpenCV REQUIRED)
 find_package(cv_bridge REQUIRED)
-find_package(sensor_interfaces REQUIRED)   
+find_package(sensor_interfaces REQUIRED)  
+
+include_directories(include)
 
 # Add the executable
-add_executable(camera_node src/CameraHandler.cpp)
-ament_target_dependencies(camera_node rclcpp sensor_msgs)
+add_executable(camera_sensor_handler src/camera_sensor_handler.cpp)
 
 # Link against cv_bridge and any other dependencies
-ament_target_dependencies(camera_node
+ament_target_dependencies(camera_sensor_handler
   rclcpp
   cv_bridge
   OpenCV
@@ -28,7 +29,7 @@ ament_target_dependencies(camera_node
 
 # Install
 install(TARGETS 
-  camera_node
+  camera_sensor_handler
   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()
